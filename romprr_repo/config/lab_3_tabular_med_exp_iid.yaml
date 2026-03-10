@@ -24,7 +24,7 @@ exp:
   seed: 42
 logger:
   name: CsvLog
-  log_dir: runs/lab_3_med_experiment
+  log_dir: runs/lab_3_med_experiment_iid
 protocol:
   eligible_perc: 1.0
   n_clients: 10
