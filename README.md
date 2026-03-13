@@ -6,7 +6,7 @@ Federated Learning for Distributed Systems: Foundations, Privacy, and Decentrali
 
 Student:
 - Sang NGUYEN
-- Romain PORRIER 
+- Romain POIRRIER 
 
 
 This folder is the working repository for the labs and experiment tracking.
