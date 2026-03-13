@@ -23,8 +23,8 @@ exp:
   seed: 42
 logger:
   name: CsvLog
-  log_dir: runs/lab_1_iid
+  log_dir: runs/lab_1_fluke_mnist_iid_traces-lep-30
 protocol:
   eligible_perc: 1.0
   n_clients: 10
-  n_rounds: 50
+  n_rounds: 40

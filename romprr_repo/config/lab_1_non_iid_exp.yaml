@@ -23,8 +23,9 @@ exp:
   seed: 42
 logger:
   name: CsvLog
-  log_dir: runs/lab_1_non_iid
+  log_dir: runs/lab_1_noniid_traces-lep-30
+  # log_dir: runs/lab_1_non_iid
 protocol:
   eligible_perc: 1.0
   n_clients: 10
-  n_rounds: 50
+  n_rounds: 40
