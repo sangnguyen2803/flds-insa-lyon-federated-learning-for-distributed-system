@@ -1,0 +1,23 @@
+hyperparameters:
+    client:
+        batch_size: 256
+        local_epochs: 10
+        loss: MultiMarginLoss
+        noise_mul: 100
+        max_grad_norm: 1.0
+        optimizer:
+            name: AdamW
+            lr: 1e-03
+            weight_decay: 1.0e-04
+        persistency: true
+        scheduler:
+            gamma: 1
+            step_size: 1
+    model: model.tabular_models.Custom_SVM
+    net_args:
+        input_dim: 11
+        output_size: 2
+    server:
+        weighted: true
+        # lr: 1.0
+name: fluke.algorithms.dpfedavg.DPFedAVG

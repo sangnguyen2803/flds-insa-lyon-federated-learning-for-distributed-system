@@ -1,0 +1,40 @@
+# ── Algorithm configuration for Vertical Federated Learning (VFL) ─────────
+#
+# VFL uses split learning: each client has a "bottom model" that maps its
+# local features to an embedding; the server has a "top model" that takes
+# concatenated embeddings and predicts.
+
+hyperparameters:
+  client:
+    batch_size: 256
+    local_epochs: 10       # in split learning, 1 epoch per round is typical
+    loss: CrossEntropyLoss
+    optimizer:
+      name: Adam
+      lr: 1.0e-05
+    persistency: true
+    scheduler:
+      gamma: 1
+      step_size: 1
+  server:
+    optimizer:
+      name: AdamW
+      lr: 1.0e-05
+    scheduler:
+      gamma: 1
+      step_size: 1
+
+  # Bottom model: one per client, maps local features → embedding
+  model_bottom: model.vertical_models.BottomModel
+  # Top model: server-side, maps concatenated embeddings → logits
+  model_top: model.vertical_models.TopModel
+
+  # Dummy entry so config validation passes (not actually used for VFL model init)
+  model: model.vertical_models.TopModel
+
+  net_args:
+    embedding_dim: 32     # dimension of each client's embedding
+    hidden_dim: 64        # hidden layer width (shared by bottom & top models)
+    output_dim: 2         # number of classes (cardio: binary)
+
+name: fluke.algorithms.vertical.VerticalFL
